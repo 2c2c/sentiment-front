@@ -5,6 +5,7 @@ import * as V from 'victory'
 import moment from 'moment'
 import './App.css';
 import HourlyChart from './HourlyChart'
+import DayChartContainer from './DayChartContainer'
 
 const VictoryBar = V.VictoryBar
 class App extends Component {
@@ -33,13 +34,7 @@ class App extends Component {
           <code>src/App.js</code>
           and save to reload.
         </p>
-        <HourlyChart tweets={this.state.tweets} />
-        <V.VictoryChart>
-          <V.VictoryArea
-            data={this.state.tweets}
-            x={(datum) => moment(datum.time).format('ha')}
-            y={(datum) => datum.total_sent}/>
-        </V.VictoryChart>
+        <DayChartContainer tweets={this.state.tweets} />
       </div>
     );
   }
