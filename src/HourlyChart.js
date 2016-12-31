@@ -49,11 +49,13 @@ const HourlyChart = (props) => {
         data={props.tweets}
         x={(datum) => moment(datum.time).format('ha')}
         y={(datum) => datum.total_sent}
-        labels={(datum) => datum.total_sent}
-        labelComponent={<V.VictoryTooltip/>}
         size={2}
       />
-
+      <V.VictoryVoronoiTooltip
+        data={props.tweets}
+        x={(datum) => moment(datum.time).format('ha')}
+        y={(datum) => datum.total_sent}
+        labels={(datum) => datum.total_sent}/>
     </V.VictoryChart>
   )
 }
