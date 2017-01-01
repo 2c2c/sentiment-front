@@ -7,6 +7,7 @@ import './App.css';
 import HourlyChart from './HourlyChart'
 import DayChartContainer from './DayChartContainer'
 import WeekContainer from './WeekContainer'
+import DailyAverageChart from './DailyAverageChart'
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class App extends Component {
           <code>src/App.js</code>
           and save to reload.
         </p>
-        <HourlyChart tweets={this.state.tweets} />
+        <DailyAverageChart tweets={this.state.tweets} />
         <WeekContainer tweets={this.state.tweets} />
       </div>
     );

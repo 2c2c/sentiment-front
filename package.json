@@ -15,7 +15,11 @@
     "mongoose": "^4.7.5",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-router": "next",
     "restify": "^4.3.0",
+    "sentiment": "^2.1.0",
+    "simple-statistics": "^2.2.0",
+    "twit": "^2.2.5",
     "victory": "^0.14.2"
   },
   "scripts": {
