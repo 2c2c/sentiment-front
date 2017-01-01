@@ -17,8 +17,13 @@ const DayChartContainer = (props) => {
   }
 
   return (
-    <div>
-      {dates(props.tweets).map((d,i) => <HourlyChart key={i} tweets={filteredTweets(props.tweets, d)}/>)}
+    <div
+      style={{
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'no-wrap'
+    }}>
+      {dates(props.tweets).map((d, i) => <HourlyChart key={i} tweets={filteredTweets(props.tweets, d)}/>)}
     </div>
   )
 }

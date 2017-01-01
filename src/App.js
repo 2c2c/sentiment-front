@@ -6,8 +6,8 @@ import moment from 'moment'
 import './App.css';
 import HourlyChart from './HourlyChart'
 import DayChartContainer from './DayChartContainer'
+import WeekContainer from './WeekContainer'
 
-const VictoryBar = V.VictoryBar
 class App extends Component {
   constructor(props) {
     super(props)
@@ -34,7 +34,8 @@ class App extends Component {
           <code>src/App.js</code>
           and save to reload.
         </p>
-        <DayChartContainer tweets={this.state.tweets} />
+        <HourlyChart tweets={this.state.tweets} />
+        <WeekContainer tweets={this.state.tweets} />
       </div>
     );
   }
