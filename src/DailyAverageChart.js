@@ -26,7 +26,7 @@ const DailyAverageChart = (props) => {
   })
 
   if (averages.length === 0) {
-    return null
+    return <div>loadin</div>
   }
   let tick = 10
   return (
