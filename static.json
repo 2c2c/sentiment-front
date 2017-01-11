@@ -5,8 +5,8 @@
     "/**": "index.html"
   },
   "proxies": {
-    "/hourlytweets": {
-      "origin": "http://twitsent.herokuapp.com/hourlytweets"
+    "/api": {
+      "origin": "https://twitsent.herokuapp.com/api"
     }
   }
 }
