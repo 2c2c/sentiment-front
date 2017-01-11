@@ -6,7 +6,7 @@
   },
   "proxies": {
     "/": {
-      "origin": "http://${API_APP_NAME}.herokuapp.com"
+      "origin": "http://twitsent.herokuapp.com"
     }
   }
 }
