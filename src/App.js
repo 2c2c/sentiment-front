@@ -11,6 +11,7 @@ import DailyAverageChart from './DailyAverageChart'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Link from 'react-router/Link'
+import Introduction from './Introduction'
 
 const Test = () => <div>hi</div>
 class App extends Component {
@@ -28,18 +29,15 @@ class App extends Component {
       })
   }
   render() {
-    const dailyAverage = () => <DailyAverageChart tweets={this.state.tweets}/>
-    const weekContainer = () => <WeekContainer tweets={this.state.tweets}/>
     return (
       <Router>
-        <div className="App">
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <h2>Welcome to React</h2>
+        <div>
+          <div className="App">
+            <div className="App-header">
+              <h2>twittersent</h2>
+            </div>
           </div>
-          <div style={{
-            textAlign: 'left'
-          }}>
+          <div>
             <div>
               <Link to={"/"}>Home</Link>
             </div>
@@ -51,7 +49,10 @@ class App extends Component {
             </div>
           </div>
 
-          <Match exactly pattern="/" component={Test}/>
+          <Match
+            exactly
+            pattern="/"
+            render={() => <Introduction />}/>
           <Match
             pattern="/dailyaverage"
             render={() => <DailyAverageChart tweets={this.state.tweets}/>}/>

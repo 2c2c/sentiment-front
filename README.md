@@ -1,5 +1,7 @@
 Front end for twitter sentiment analysis.
 
+http://twittersent.herokuapp.com/
+
 Every hour I tap twitter's random stream to collect 10000 tweets. I apply a sentiment scoring algorithm on each tweet and sum it as that hour's hourly sentiment.
 
 The process isn't as good as it could be. Tweets have a lot of noise in them-- usernames, urls, emojis, images, etc. None of this can be accurately quantified sentiment, so it would be better to filter the noise out. Since the tweets are random, I just assume the noise as uncertainty applying to all of the data evenly (I'm lazy and scientific accuracy was never my intention). The data gathering was originally done locally, so there's missing hours of data for the first several weeks.

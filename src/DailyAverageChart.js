@@ -68,7 +68,10 @@ const DailyAverageChart = (props) => {
             : 0
         }
       }}/>
-      <V.VictoryAxis dependentAxis label="Averaged Hourly Sentiment" />
+      <V.VictoryAxis dependentAxis label="Averaged Hourly Sentiment"
+        tickLabelComponent={<V.VictoryLabel dx={5}/>}
+        axisLabelComponent={<V.VictoryLabel dy={-1}/>}
+      />
       <V.VictoryLine
         data={averages}
         x={(datum) => moment(datum.time).format('YYYY/MM/DD')}

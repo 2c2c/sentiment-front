@@ -21,7 +21,9 @@ const HourlyChart = (props) => {
       }}/>
       <V.VictoryAxis
         scale="time"
-        label="Hour"
+        label={props.tweets
+        ? moment(props.tweets[0].time).format('YYYY/MM/DD')
+        : ''}
         style={{
         axis: {
           stroke: "#756f6a"
@@ -42,17 +44,20 @@ const HourlyChart = (props) => {
             : 0
         }
       }}/>
-      <V.VictoryAxis dependentAxis label="Total Sentiment" />
+      <V.VictoryAxis
+        dependentAxis
+        label="Total Sentiment"
+        tickLabelComponent={< V.VictoryLabel dx={5} />}
+        axisLabelComponent={< V.VictoryLabel dy={-1} />}/>
       <V.VictoryLine
         data={props.tweets}
         x={(datum) => moment(datum.time).format('ha')}
-        y={(datum) => datum.total_sent} />
-      <V.VictoryScatter 
+        y={(datum) => datum.total_sent}/>
+      <V.VictoryScatter
         data={props.tweets}
         x={(datum) => moment(datum.time).format('ha')}
         y={(datum) => datum.total_sent}
-        size={2}
-      />
+        size={2}/>
       <V.VictoryVoronoiTooltip
         data={props.tweets}
         x={(datum) => moment(datum.time).format('ha')}
