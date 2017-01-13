@@ -52,8 +52,12 @@ class App extends Component {
           </div>
 
           <Match exactly pattern="/" component={Test}/>
-          <Match pattern="/dailyaverage" component={dailyAverage}/>
-          <Match pattern="/hourly" component={weekContainer}/>
+          <Match
+            pattern="/dailyaverage"
+            render={() => <DailyAverageChart tweets={this.state.tweets}/>}/>
+          <Match
+            pattern="/hourly"
+            render={() => <WeekContainer tweets={this.state.tweets}/>}/>
         </div>
       </Router>
     );

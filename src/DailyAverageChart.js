@@ -7,7 +7,7 @@ import * as V from 'victory'
 const DailyAverageChart = (props) => {
   const dates = (tweets) => {
     return tweets
-      .map(t => moment(t.time).format('YYYY-MM-DD'))
+      .map(t => moment(t.time).format('YYYY/MM/DD'))
       .filter((d, i, arr) => arr.indexOf(d) === i)
   }
 
@@ -33,7 +33,7 @@ const DailyAverageChart = (props) => {
     <V.VictoryChart>
       <V.VictoryArea
         data={averages}
-        x={(datum) => moment(datum.time).format('YYYY-MM-DD')}
+        x={(datum) => moment(datum.time).format('YYYY/MM/DD')}
         y={(datum) => datum.average_sent}
         style={{
         data: {
@@ -44,6 +44,8 @@ const DailyAverageChart = (props) => {
         }
       }}/>
       <V.VictoryAxis
+        scale="time"
+        label="Day"
         style={{
         axis: {
           stroke: "#756f6a"
@@ -57,28 +59,30 @@ const DailyAverageChart = (props) => {
           stroke: "grey"
         },
         tickLabels: {
-          fontSize: 10,
+          textShadow: '-1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff',
+          angle: -70,
+          fontSize: 8,
           padding: 5,
           opacity: (t) => t % tick === 0
             ? 1
             : 0
         }
       }}/>
-      <V.VictoryAxis dependentAxis/>
+      <V.VictoryAxis dependentAxis label="Averaged Hourly Sentiment" />
       <V.VictoryLine
         data={averages}
-        x={(datum) => moment(datum.time).format('YYYY-MM-DD')}
+        x={(datum) => moment(datum.time).format('YYYY/MM/DD')}
         y={(datum) => datum.average_sent}/>
       <V.VictoryScatter
         data={averages}
-        x={(datum) => moment(datum.time).format('YYYY-MM-DD')}
+        x={(datum) => moment(datum.time).format('YYYY/MM/DD')}
         y={(datum) => datum.average_sent}
         size={2}/>
       <V.VictoryVoronoiTooltip
         data={averages}
-        x={(datum) => moment(datum.time).format('YYYY-MM-DD')}
+        x={(datum) => moment(datum.time).format('YYYY/MM/DD')}
         y={(datum) => datum.average_sent}
-        labels={(datum) => datum.average_sent}/>
+        labels={(datum) => Math.round(datum.average_sent)}/>
     </V.VictoryChart>
   )
 }

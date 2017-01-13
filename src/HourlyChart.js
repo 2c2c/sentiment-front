@@ -20,6 +20,8 @@ const HourlyChart = (props) => {
         }
       }}/>
       <V.VictoryAxis
+        scale="time"
+        label="Hour"
         style={{
         axis: {
           stroke: "#756f6a"
@@ -40,7 +42,7 @@ const HourlyChart = (props) => {
             : 0
         }
       }}/>
-      <V.VictoryAxis dependentAxis/>
+      <V.VictoryAxis dependentAxis label="Total Sentiment" />
       <V.VictoryLine
         data={props.tweets}
         x={(datum) => moment(datum.time).format('ha')}
