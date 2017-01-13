@@ -28,7 +28,7 @@ const DailyAverageChart = (props) => {
   if (averages.length === 0) {
     return <div>loadin</div>
   }
-  let tick = 10
+  let tick = 4
   return (
     <V.VictoryChart>
       <V.VictoryArea
