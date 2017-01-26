@@ -24,6 +24,8 @@ class App extends Component {
       const sorted_data = resp.data.sort((a, b) => {
         return moment.utc(a.time).diff(moment.utc(b.time));
       });
+
+      console.log(sorted_data)
       this.setState({ tweets: sorted_data });
     });
   }
