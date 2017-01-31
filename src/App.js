@@ -8,9 +8,10 @@ import HourlyChart from "./HourlyChart";
 import DayChartContainer from "./DayChartContainer";
 import WeekContainer from "./WeekContainer";
 import DailyAverageChart from "./DailyAverageChart";
-import Router from "react-router/BrowserRouter";
-import Match from "react-router/Match";
-import Link from "react-router/Link";
+import Router from 'react-router-dom/BrowserRouter';
+import Link from 'react-router-dom/Link';
+import Route from 'react-router-dom/Route';
+
 import Introduction from "./Introduction";
 
 const Test = () => <div>hi</div>;
@@ -48,13 +49,13 @@ class App extends Component {
               <Link to={"/hourly"}>Hourly Sentiment</Link>
             </div>
           </div>
-          <Match exactly pattern="/" render={() => <Introduction />} />
-          <Match
-            pattern="/dailyaverage"
+          <Route exact path="/" render={() => <Introduction />} />
+          <Route
+            path="/dailyaverage"
             render={() => <DailyAverageChart tweets={this.state.tweets} />}
           />
-          <Match
-            pattern="/hourly"
+          <Route
+            path="/hourly"
             render={() => <WeekContainer tweets={this.state.tweets} />}
           />
         </div>
