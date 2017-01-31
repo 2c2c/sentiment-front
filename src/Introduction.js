@@ -2,7 +2,7 @@ import React from "react";
 import { RouteTransition, presets } from "react-router-transition";
 
 const Introduction = () => (
-  <RouteTransition pathname="/" key="/" component={false} {...presets.fade} >
+  <RouteTransition pathname="/" key="/" component={false} {...presets.fade}>
     <div
       style={{
         display: "block",

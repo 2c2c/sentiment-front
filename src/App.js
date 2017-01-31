@@ -8,9 +8,9 @@ import HourlyChart from "./HourlyChart";
 import DayChartContainer from "./DayChartContainer";
 import WeekContainer from "./WeekContainer";
 import DailyAverageChart from "./DailyAverageChart";
-import Router from 'react-router-dom/BrowserRouter';
-import Link from 'react-router-dom/Link';
-import Route from 'react-router-dom/Route';
+import Router from "react-router-dom/BrowserRouter";
+import Link from "react-router-dom/Link";
+import Route from "react-router-dom/Route";
 
 import Introduction from "./Introduction";
 

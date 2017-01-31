@@ -16,7 +16,12 @@ const WeekContainer = props => {
   };
 
   return (
-    <RouteTransition pathname="/hourly" key="/hourly" component={false} {...presets.fade}>
+    <RouteTransition
+      pathname="/hourly"
+      key="/hourly"
+      component={false}
+      {...presets.fade}
+    >
       <div>
         {weeks(props.tweets).map((w, i) => (
           <DayChartContainer key={i} tweets={filteredTweets(props.tweets, w)} />
