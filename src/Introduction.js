@@ -2,16 +2,20 @@ import React from "react";
 import { RouteTransition, presets } from "react-router-transition";
 
 const Introduction = () => (
-  <RouteTransition pathname="/" key="/" component={false} {...presets.fade}>
-    <div
-      style={{
-        display: "block",
-        margin: "1em auto",
-        maxWidth: "50em",
-        padding: ".62em",
-        font: "1.2em/1.62em sans-serif"
-      }}
-    >
+  <RouteTransition
+    style={{
+      display: "block",
+      margin: "1em auto",
+      maxWidth: "50em",
+      padding: ".62em",
+      font: "1.2em/1.62em sans-serif"
+    }}
+    pathname="/"
+    key="/"
+    component={false}
+    {...presets.fade}
+  >
+    <div>
       <p>
         Every hour I tap twitter's random stream to collect 10000 tweets. I apply a
       sentiment scoring algorithm on each tweet and sum it as that hour's hourly
