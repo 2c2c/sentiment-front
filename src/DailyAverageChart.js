@@ -8,6 +8,14 @@ import { RouteTransition, presets } from "react-router-transition";
 
 const DailyAverageChart = props => {
   // holiday libraries have issues so this shits needed
+
+  const daysOfInterest = () => {
+    const days_of_interest = [
+      { date: "2017/01/28", holiday: "#MuslimBan" },
+      { date: "2017/02/05", holiday: "Superbowl LI" }
+    ];
+    return days_of_interest;
+  };
   const getHolidays = year => {
     return [
       { date: `${year}/01/01`, holiday: "New Years" },
@@ -19,13 +27,12 @@ const DailyAverageChart = props => {
   };
 
   const isHoliday = date => {
-    const days_of_interest = [{ date: "2017/01/28", holiday: "#MuslimBan" }];
     const holiday_list = _.concat(
       getHolidays(2016),
       getHolidays(2017),
       getHolidays(2018),
       getHolidays(2019),
-      days_of_interest
+      daysOfInterest()
     );
 
     const is_holiday = holiday_list.some(h => {
@@ -36,16 +43,12 @@ const DailyAverageChart = props => {
   };
 
   const holidayName = date => {
-    const days_of_interest = [
-      { date: "2017/01/28", holiday: "#MuslimBan" },
-      { date: "2017/02/05", holiday: "Superbowl LI" }
-    ];
     const holiday_list = _.concat(
       getHolidays(2016),
       getHolidays(2017),
       getHolidays(2018),
       getHolidays(2019),
-      days_of_interest
+      daysOfInterest()
     );
 
     const name = holiday_list
