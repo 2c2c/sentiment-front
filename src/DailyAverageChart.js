@@ -19,7 +19,7 @@ const DailyAverageChart = props => {
   };
 
   const isHoliday = date => {
-    const days_of_interest = [ { date: "2017/01/28", holiday: "#MuslimBan" } ];
+    const days_of_interest = [{ date: "2017/01/28", holiday: "#MuslimBan" }];
     const holiday_list = _.concat(
       getHolidays(2016),
       getHolidays(2017),
@@ -36,7 +36,10 @@ const DailyAverageChart = props => {
   };
 
   const holidayName = date => {
-    const days_of_interest = [ { date: "2017/01/28", holiday: "#MuslimBan" } ];
+    const days_of_interest = [
+      { date: "2017/01/28", holiday: "#MuslimBan" },
+      { date: "2017/02/05", holiday: "Superbowl LI" }
+    ];
     const holiday_list = _.concat(
       getHolidays(2016),
       getHolidays(2017),
@@ -93,7 +96,7 @@ const DailyAverageChart = props => {
           x={datum => moment(datum.time).format("YYYY/MM/DD")}
           y={datum => datum.average_sent}
           style={{
-            data: { opacity: .4 },
+            data: { opacity: 0.4 },
             parent: { border: "1px solid #ccc" }
           }}
         />
@@ -142,9 +145,9 @@ const DailyAverageChart = props => {
           y={datum => datum.average_sent}
           labels={datum => {
             if (isHoliday(datum.time)) {
-              return `${holidayName(
-                datum.time
-              )}\n${Math.round(datum.average_sent)}`;
+              return `${holidayName(datum.time)}\n${Math.round(
+                datum.average_sent
+              )}`;
             }
             return Math.round(datum.average_sent);
           }}
