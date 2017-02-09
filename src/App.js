@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import axios from "axios";
-import * as V from "victory";
 import moment from "moment";
 import "./App.css";
-import HourlyChart from "./HourlyChart";
-import DayChartContainer from "./DayChartContainer";
 import WeekContainer from "./WeekContainer";
 import DailyAverageChart from "./DailyAverageChart";
 import Router from "react-router-dom/BrowserRouter";
@@ -14,12 +10,9 @@ import Route from "react-router-dom/Route";
 
 import Introduction from "./Introduction";
 
-const Test = () => <div>hi</div>;
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { tweets: [] };
-  }
+  tweets = [];
+
   componentDidMount() {
     axios.get("/api/hourlytweets").then(resp => {
       const sorted_data = resp.data.sort((a, b) => {
@@ -35,7 +28,7 @@ class App extends Component {
         <div>
           <div className="App">
             <div className="App-header">
-              <h2>twittersent</h2>
+              <h2>twittersent 🐦😊😠</h2>
             </div>
           </div>
           <div>

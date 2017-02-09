@@ -1,5 +1,4 @@
 import React from "react";
-import DayChart from "./DayChart";
 import HourlyChart from "./HourlyChart";
 import moment from "moment";
 

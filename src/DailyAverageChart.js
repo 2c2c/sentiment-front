@@ -1,6 +1,5 @@
 import React from "react";
 import ss from "simple-statistics";
-import HourlyChart from "./HourlyChart";
 import moment from "moment";
 import * as V from "victory";
 import _ from "lodash";

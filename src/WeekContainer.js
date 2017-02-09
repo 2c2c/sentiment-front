@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import HourlyChart from "./HourlyChart";
 import DayChartContainer from "./DayChartContainer";
 import { RouteTransition, presets } from "react-router-transition";
 
