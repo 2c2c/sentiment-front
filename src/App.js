@@ -3,6 +3,7 @@ import axios from "axios";
 import moment from "moment";
 import "./App.css";
 import WeekContainer from "./WeekContainer";
+import DayChartContainer from "./DayChartContainer";
 import DailyAverageChart from "./DailyAverageChart";
 import Router from "react-router-dom/BrowserRouter";
 import Link from "react-router-dom/Link";
@@ -49,8 +50,8 @@ class App extends Component {
           />
           <Route
             path="/hourly"
-            render={() => <WeekContainer tweets={this.state.tweets} />}
-          />
+            render={() => <DayChartContainer tweets={this.state.tweets} />}
+            />
         </div>
       </Router>
     );

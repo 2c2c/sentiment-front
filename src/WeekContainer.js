@@ -22,9 +22,7 @@ const WeekContainer = props => {
       {...presets.fade}
     >
       <div>
-        {weeks(props.tweets).map((w, i) => (
-          <DayChartContainer key={i} tweets={filteredTweets(props.tweets, w)} />
-        ))}
+          <DayChartContainer tweets={props.tweets} />
       </div>
     </RouteTransition>
   );
