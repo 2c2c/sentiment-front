@@ -11,7 +11,8 @@ const DailyAverageChart = props => {
   const daysOfInterest = () => {
     const days_of_interest = [
       { date: "2017/01/28", holiday: "#MuslimBan" },
-      { date: "2017/02/05", holiday: "Superbowl LI" }
+      { date: "2017/02/05", holiday: "Superbowl LI" },
+      { date: "2017/02/26", holiday: "Oscars Goofup" }
     ];
     return days_of_interest;
   };
