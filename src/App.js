@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
 import "./App.css";
-import WeekContainer from "./WeekContainer";
+import WeekdayAverageChart from "./WeekdayAverageChart";
 import DayChartContainer from "./DayChartContainer";
 import DailyAverageChart from "./DailyAverageChart";
 import Router from "react-router-dom/BrowserRouter";
@@ -42,6 +42,9 @@ class App extends Component {
             <div>
               <Link to={"/hourly"}>Hourly Sentiment</Link>
             </div>
+            <div>
+              <Link to={"/weekdayaverage"}>Weekday Average Sentiment</Link>
+            </div>
           </div>
           <Route exact path="/" render={() => <Introduction />} />
           <Route
@@ -51,7 +54,11 @@ class App extends Component {
           <Route
             path="/hourly"
             render={() => <DayChartContainer tweets={this.state.tweets} />}
-            />
+          />
+          <Route
+            path="/weekdayaverage"
+            render={() => <WeekdayAverageChart tweets={this.state.tweets} />}
+          />
         </div>
       </Router>
     );
