@@ -35,8 +35,8 @@ const WeekdayAverageChart = props => {
         return day === weekday;
       })
       .reduce(
-        (acc, t) => {
-          return acc + Math.floor(Number(t.average_sent) / sum.length);
+        (acc, t, i, arr) => {
+          return acc + Math.floor(Number(t.average_sent) / arr.length);
         },
         0
       );
