@@ -53,7 +53,7 @@ const WeekdayAverageChart = props => {
     sentimentByDay(averages, "Sun")
   ];
   return (
-    <div>
+    <div style={{margin: "auto", width: "80%", height: "80%"}}>
       <V.VictoryChart>
         <V.VictoryBar
           data={mappedSums}
