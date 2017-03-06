@@ -3,9 +3,11 @@ import _ from "lodash";
 
 const daysOfInterest = () => {
   const days_of_interest = [
+    { date: "2017/01/20", holiday: "Trump's Inauguration" },
     { date: "2017/01/28", holiday: "#MuslimBan" },
     { date: "2017/02/05", holiday: "Superbowl LI" },
-    { date: "2017/02/26", holiday: "Oscars Goofup" }
+    { date: "2017/02/26", holiday: "Oscars Goofup" },
+    { date: "2017/03/06", holiday: "#MuslimBan 2" }
   ];
   return days_of_interest;
 };
@@ -54,4 +56,4 @@ const holidayName = date => {
   return name;
 };
 
-export {isHoliday, holidayName};
+export { isHoliday, holidayName };
