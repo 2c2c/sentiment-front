@@ -22,7 +22,7 @@ const WeekContainer = props => {
       {...presets.fade}
     >
       <div>
-          <DayChartContainer tweets={props.tweets} />
+        <DayChartContainer tweets={props.tweets} />
       </div>
     </RouteTransition>
   );

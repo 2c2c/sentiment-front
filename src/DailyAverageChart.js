@@ -38,6 +38,7 @@ const DailyAverageChart = props => {
       key="/dailyaverage"
       component={false}
       {...presets.fade}
+      style={{ width: "80%", height: "80%", margin: "auto" }}
     >
       <V.VictoryChart>
         <V.VictoryArea
@@ -94,9 +95,7 @@ const DailyAverageChart = props => {
           y={datum => datum.average_sent}
           labels={datum => {
             if (isHoliday(datum.time)) {
-              return `${holidayName(datum.time)}\n${Math.round(
-                datum.average_sent
-              )}`;
+              return `${holidayName(datum.time)}\n${Math.round(datum.average_sent)}`;
             }
             return Math.round(datum.average_sent);
           }}

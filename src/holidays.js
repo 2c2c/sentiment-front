@@ -7,7 +7,8 @@ const daysOfInterest = () => {
     { date: "2017/01/28", holiday: "#MuslimBan" },
     { date: "2017/02/05", holiday: "Superbowl LI" },
     { date: "2017/02/26", holiday: "Oscars Goofup" },
-    { date: "2017/03/06", holiday: "#MuslimBan 2" }
+    { date: "2017/03/06", holiday: "#MuslimBan 2" },
+    { date: "2017/03/08", holiday: "Women's Day"}
   ];
   return days_of_interest;
 };
