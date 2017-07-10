@@ -30,7 +30,7 @@ const DailyAverageChart = props => {
   if (averages.length === 0) {
     return <div>loadin</div>;
   }
-  let tick = 4;
+  let tick = 15;
 
   return (
     <RouteTransition
@@ -87,7 +87,7 @@ const DailyAverageChart = props => {
               fill: datum => isHoliday(datum.time) ? "#DD0000" : "#000000"
             }
           }}
-          size={2}
+          size={1}
         />
         <V.VictoryVoronoiTooltip
           data={averages}
