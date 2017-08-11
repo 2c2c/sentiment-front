@@ -9,13 +9,23 @@ const WeekdayAverageChart = props => {
   };
 
   const dates = tweets => {
-    return tweets
-      .map(t => moment(t.time).format("YYYY/MM/DD"))
-      .filter((d, i, arr) => arr.indexOf(d) === i);
+    const string_dates = tweets.map(t => {
+      let date = new Date(t.time);
+      date.setHours(0, 0, 0, 0);
+      return date.valueOf();
+    });
+
+    const uniques = Array.from(new Set(string_dates));
+    return uniques;
   };
 
   const filteredTweets = (tweets, date) => {
-    return tweets.filter(t => moment(t.time).isSame(date, "day"));
+    const is_same = tweets.filter(t => {
+      let d = new Date(t.time);
+      d.setHours(0, 0, 0, 0);
+      return d.valueOf() === date;
+    });
+    return is_same;
   };
 
   const dailyAverage = daily_tweets => {
