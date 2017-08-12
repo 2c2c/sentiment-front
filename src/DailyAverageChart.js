@@ -33,8 +33,6 @@ export default class DailyAverageChart extends React.Component {
   };
 
   render() {
-    console.log(this.props.tweets);
-
     const averages = this.dates(this.props.tweets).map((d, i) => {
       let average = this.dailyAverage(
         this.filteredTweets(this.props.tweets, d)
@@ -53,7 +51,7 @@ export default class DailyAverageChart extends React.Component {
         key="/dailyaverage"
         component={false}
         {...presets.fade}
-        style={{ width: "80%", height: "80%", margin: "auto" }}
+        style={{ width: "100%", height: "100%", margin: "auto" }}
       >
         <V.VictoryChart>
           <V.VictoryArea

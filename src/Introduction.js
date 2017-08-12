@@ -5,7 +5,6 @@ const Introduction = () => (
   <RouteTransition
     style={{
       display: "block",
-      margin: "1em auto",
       maxWidth: "50em",
       padding: ".62em",
       font: "1.2em/1.62em sans-serif"

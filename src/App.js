@@ -32,33 +32,45 @@ class App extends Component {
               <h2>twittersent 🐦😊😠</h2>
             </div>
           </div>
-          <div>
-            <div>
-              <Link to={"/"}>Home</Link>
+          <div style={{ display: "flex", height: "100%" }}>
+            <div
+              style={{
+                width: "175px",
+                margin: "1em auto",
+                padding: "1em",
+                font: ".8em/1.5em sans-serif"
+              }}
+            >
+              <div>
+                <Link to={"/"}>Home</Link>
+              </div>
+              <div>
+                <Link to={"/dailyaverage"}>Daily Average Sentiment</Link>
+              </div>
+              <div>
+                <Link to={"/hourly"}>Hourly Sentiment</Link>
+              </div>
+              <div>
+                <Link to={"/weekdayaverage"}>Weekday Average Sentiment</Link>
+              </div>
             </div>
-            <div>
-              <Link to={"/dailyaverage"}>Daily Average Sentiment</Link>
-            </div>
-            <div>
-              <Link to={"/hourly"}>Hourly Sentiment</Link>
-            </div>
-            <div>
-              <Link to={"/weekdayaverage"}>Weekday Average Sentiment</Link>
+            <div style={{ flex: "1", height: "100%" }}>
+              <Route exact path="/" render={() => <Introduction />} />
+              <Route
+                path="/dailyaverage"
+                render={() => <DailyAverageChart tweets={this.state.tweets} />}
+              />
+              <Route
+                path="/hourly"
+                render={() => <DayChartContainer tweets={this.state.tweets} />}
+              />
+              <Route
+                path="/weekdayaverage"
+                render={() =>
+                  <WeekdayAverageChart tweets={this.state.tweets} />}
+              />
             </div>
           </div>
-          <Route exact path="/" render={() => <Introduction />} />
-          <Route
-            path="/dailyaverage"
-            render={() => <DailyAverageChart tweets={this.state.tweets} />}
-          />
-          <Route
-            path="/hourly"
-            render={() => <DayChartContainer tweets={this.state.tweets} />}
-          />
-          <Route
-            path="/weekdayaverage"
-            render={() => <WeekdayAverageChart tweets={this.state.tweets} />}
-          />
         </div>
       </Router>
     );
