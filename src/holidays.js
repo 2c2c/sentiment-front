@@ -10,7 +10,7 @@ const daysOfInterest = () => {
     { date: "2017/03/06", holiday: "#MuslimBan 2" },
     { date: "2017/03/08", holiday: "Women's Day" },
     { date: "2017/08/12", holiday: "Charlottesville Attack" },
-    { date: "2017/03/08", holiday: "Trump's response on Charlottesville" }
+    { date: "2017/08/15", holiday: "Trump's response on Charlottesville" }
   ];
   return days_of_interest;
 };
