@@ -7,7 +7,8 @@ const Introduction = () => (
       display: "block",
       maxWidth: "50em",
       padding: ".62em",
-      font: "1.2em/1.62em sans-serif"
+      font: "1.2em/1.62em sans-serif",
+      margin: "0 auto"
     }}
     pathname="/"
     key="/"

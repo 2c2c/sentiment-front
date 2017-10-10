@@ -45,13 +45,13 @@ class App extends Component {
                 <Link to={"/"}>Home</Link>
               </div>
               <div>
-                <Link to={"/dailyaverage"}>Daily Average Sentiment</Link>
+                <Link to={"/dailyaverage"}>Day by Day</Link>
               </div>
               <div>
-                <Link to={"/hourly"}>Hourly Sentiment</Link>
+                <Link to={"/hourly"}>Hourly</Link>
               </div>
               <div>
-                <Link to={"/weekdayaverage"}>Weekday Average Sentiment</Link>
+                <Link to={"/weekdayaverage"}>Days of the Week</Link>
               </div>
             </div>
             <div style={{ flex: "1", height: "100%" }}>
