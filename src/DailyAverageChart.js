@@ -32,6 +32,39 @@ export default class DailyAverageChart extends React.Component {
     return average;
   };
 
+  linearRegression = daily_average => {
+    //our averages have a timestamp as x axis, need to convert to integer steps and convert back at the end
+    let mapped_average = daily_average.map((a, i) => {
+      return [i, a.average_sent];
+    });
+
+    let linear_regression = ss.linearRegression(mapped_average);
+
+    console.log(linear_regression);
+
+    let y_1 = linear_regression.b;
+    let y_2 =
+      linear_regression.b +
+      linear_regression.m * mapped_average[mapped_average.length - 1][0];
+
+    let x_1 = daily_average[0].time;
+    let x_2 = daily_average[daily_average.length - 1].time;
+
+    let finished_line = [
+      {
+        average_sent: y_1,
+        time: x_1
+      },
+      {
+        average_sent: y_2,
+        time: x_2
+      }
+    ];
+
+    console.log(finished_line);
+    return finished_line;
+  };
+
   render() {
     const averages = this.dates(this.props.tweets).map((d, i) => {
       let average = this.dailyAverage(
@@ -45,6 +78,7 @@ export default class DailyAverageChart extends React.Component {
     }
     let tick = 15;
 
+    let regression_line = this.linearRegression(averages);
     return (
       <RouteTransition
         pathname="/dailyaverage"
@@ -102,6 +136,19 @@ export default class DailyAverageChart extends React.Component {
               }
             }}
             size={1}
+          />
+          <V.VictoryLine
+            data={regression_line}
+            x={datum => new Date(datum.time).toLocaleDateString()}
+            y={datum => datum.average_sent}
+            style={{
+              data: {
+                stroke: "#a0d6b4",
+                strokeWidth: 15,
+                strokeLinecap: "round",
+                opacity: .8
+              }
+            }}
           />
           <V.VictoryVoronoiTooltip
             data={averages}
