@@ -11,10 +11,13 @@ import Route from "react-router-dom/Route";
 
 import Introduction from "./Introduction";
 
-class App extends Component {
-  tweets = [];
+export default class App extends Component {
+  state = {
+    tweets: []
+  };
 
   componentDidMount() {
+    console.log(this.state.tweets);
     axios.get("/api/hourlytweets").then(resp => {
       const sorted_data = resp.data.sort((a, b) => {
         return moment.utc(a.time).diff(moment.utc(b.time));
@@ -66,8 +69,9 @@ class App extends Component {
               />
               <Route
                 path="/weekdayaverage"
-                render={() =>
-                  <WeekdayAverageChart tweets={this.state.tweets} />}
+                render={() => (
+                  <WeekdayAverageChart tweets={this.state.tweets} />
+                )}
               />
             </div>
           </div>
@@ -76,5 +80,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
