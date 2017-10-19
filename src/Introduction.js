@@ -26,28 +26,20 @@ const Introduction = () => (
         them-- usernames, urls, emojis, images, etc. None of this can be accurately
         quantified sentiment, so it would be better to filter the noise out. Since the
         tweets are random, I just assume the noise as uncertainty applying to all of the
-        data evenly (I'm lazy and scientific accuracy was never my intention). The data
-        gathering was originally done locally, so there's missing hours of data for the
-        first several weeks.
+        data evenly.
       </p>
-      <p>The two hypothesis I wanted to test with this were:</p>
+      <p>Interesting things I've noticed so far:</p>
       <ul>
         <li>
-          Is there a distinct increase in positive sentiment on major holidays? Weekends?
+          Day to day sentiment is trending downwards.
         </li>
         <li>
-          The world appears to be getting more divisive and angry. Is average
-          sentiment per day trending downwards?
+          The weekends are predictably more positive.
+        </li>
+        <li>
+          There have been three instances of "negative" sentiment recorded: the day of the Charlottesville attack, the day of the Vegas attack, and the hour <a href="https://www.google.com/search?q=giant+robot+duel">Giant Robot Duel</a> aired.
         </li>
       </ul>
-      <p>
-        For what it's worth, Dec 31/Jan 1 show a distinct peak in the data as of
-        writing this.
-      </p>
-      <p>
-        This was largely just a toy project to test victoryjs, the new react router
-        v4 api, and heroku deployment.
-      </p>
     </div>
   </RouteTransition>
 );
