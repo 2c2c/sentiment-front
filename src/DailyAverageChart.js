@@ -33,36 +33,52 @@ export default class DailyAverageChart extends React.Component {
   };
 
   linearRegression = daily_average => {
+    const linreg = ma => {
+      let linear_regression = ss.linearRegression(mapped_average);
+
+      let y_1 = linear_regression.b;
+      let y_2 = ss.linearRegressionLine(linear_regression)(
+        daily_average.length
+      );
+
+      let x_1 = daily_average[0].time;
+      let x_2 = daily_average[daily_average.length - 1].time;
+
+      let finished_line = [
+        {
+          average_sent: y_1,
+          time: x_1
+        },
+        {
+          average_sent: y_2,
+          time: x_2
+        }
+      ];
+
+      return finished_line;
+    };
     //our averages have a timestamp as x axis, need to convert to integer steps and convert back at the end
-    let mapped_average = daily_average.map((a, i) => {
+    const mapped_average = daily_average.map((a, i) => {
       return [i, a.average_sent];
     });
 
-    let linear_regression = ss.linearRegression(mapped_average);
+    const standard = linreg(mapped_average);
 
-    console.log(linear_regression);
+    const median = ss.median(daily_average.map(da => da.average_sent));
+    const sd = ss.standardDeviation(daily_average.map(da => da.average_sent));
+    const filtered_average = daily_average
+      .filter(
+        da =>
+          da.average_sent >= median + 3 * sd &&
+          da.average_sent <= median - 3 * sd
+      )
+      .map((a, i) => {
+        return [i, a.average_sent];
+      });
 
-    let y_1 = linear_regression.b;
-    let y_2 =
-      linear_regression.b +
-      linear_regression.m * mapped_average[mapped_average.length - 1][0];
+    const outliersRemoved = linreg(filtered_average);
 
-    let x_1 = daily_average[0].time;
-    let x_2 = daily_average[daily_average.length - 1].time;
-
-    let finished_line = [
-      {
-        average_sent: y_1,
-        time: x_1
-      },
-      {
-        average_sent: y_2,
-        time: x_2
-      }
-    ];
-
-    console.log(finished_line);
-    return finished_line;
+    return { standard, outliersRemoved };
   };
 
   render() {
@@ -78,7 +94,7 @@ export default class DailyAverageChart extends React.Component {
     }
     let tick = 15;
 
-    let regression_line = this.linearRegression(averages);
+    let regression_line = this.linearRegression(averages).standard;
     return (
       <RouteTransition
         pathname="/dailyaverage"
@@ -146,7 +162,7 @@ export default class DailyAverageChart extends React.Component {
                 stroke: "#a0d6b4",
                 strokeWidth: 15,
                 strokeLinecap: "round",
-                opacity: .8
+                opacity: 0.8
               }
             }}
           />
