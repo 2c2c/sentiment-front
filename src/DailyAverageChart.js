@@ -117,7 +117,7 @@ export default class DailyAverageChart extends React.Component {
           />
           <V.VictoryAxis
             dependentAxis
-            label="Averaged Hourly Sentiment"
+            label="Average Sentiment"
             tickLabelComponent={<V.VictoryLabel dx={5} />}
             axisLabelComponent={<V.VictoryLabel dy={-1} />}
           />

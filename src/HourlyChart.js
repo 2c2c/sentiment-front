@@ -38,7 +38,7 @@ const HourlyChart = props => {
         />
         <V.VictoryAxis
           dependentAxis
-          label="Total Sentiment"
+          label="Sentiment"
           tickLabelComponent={<V.VictoryLabel dx={5} />}
           axisLabelComponent={<V.VictoryLabel dy={-1} />}
         />
