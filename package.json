@@ -7,15 +7,15 @@
     "react-scripts": "1.0.14"
   },
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.17.0",
     "dotenv": "^4.0.0",
-    "moment": "^2.17.1",
+    "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "next",
-    "react-router-transition": "^1.1.0",
-    "simple-statistics": "^5.0.0",
-    "victory": "^0.23.0"
+    "react-router-transition": "^1.1.1",
+    "simple-statistics": "^5.0.1",
+    "victory": "^0.24.0"
   },
   "scripts": {
     "start": "react-scripts start",
